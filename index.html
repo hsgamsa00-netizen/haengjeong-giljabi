@@ -12,57 +12,77 @@
   --ok:#1a7f4b;--ok-soft:#e7f4ec;--ok-line:#bfe3cd;
   --warn:#9a6a00;--warn-soft:#fbf2dc;--warn-line:#eed8a8;
   --danger:#b4232a;--danger-soft:#fbe9ea;--danger-line:#eec2c4;
+  --official:#1d5fa8;--official-soft:#e8f0f9;
   --r:10px;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic","Apple SD Gothic Neo",sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-text-size-adjust:100%}
-.wrap{max-width:880px;margin:0 auto;padding:0 16px 64px}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px 60px}
 button{font-family:inherit;cursor:pointer}
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:none;box-shadow:0 0 0 3px var(--accent-soft),0 0 0 1.5px var(--accent);border-radius:8px}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:none;box-shadow:0 0 0 3px var(--accent-soft),0 0 0 1.5px var(--accent);border-radius:8px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 svg{display:block}
+a{color:var(--accent);text-decoration:none}
 
 header.top{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
 .top .wrap{padding:11px 16px;display:flex;align-items:center;gap:10px}
 .brand{font-weight:800;font-size:16px;display:flex;align-items:center;gap:8px;cursor:pointer;background:none;border:none;padding:0;color:var(--ink)}
 .brand .mk{width:26px;height:26px;border-radius:7px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:14px}
-.brand .md{font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:999px}
+.brand.off .mk{background:var(--official)}
+.modetag{font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:999px}
+.modetag.off{color:var(--official);background:var(--official-soft)}
 .switch{margin-left:auto;font-size:12.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);padding:6px 11px;border-radius:999px;display:inline-flex;align-items:center;gap:5px}
 .switch:hover{border-color:var(--accent-line);color:var(--accent)}
-.aibar{background:var(--accent-soft);border-bottom:1px solid var(--accent-line)}
-.aibar .wrap{padding:6px 16px;font-size:11.5px;color:#8a4a12;display:flex;align-items:center;gap:6px;justify-content:center}
 
-.hero{padding:22px 2px 6px}
-.hero h1{font-size:22px;margin:0 0 8px;letter-spacing:-.3px}
+.hero{padding:24px 2px 4px}
+.hero h1{font-size:21px;margin:0 0 6px;letter-spacing:-.3px}
 .hero p{margin:0;color:var(--muted);font-size:14px}
-.hero .kk{color:var(--accent);font-weight:700}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:18px}
-.cat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:left;display:flex;flex-direction:column;gap:8px;transition:.12s;min-height:124px}
-.cat:hover{border-color:var(--accent-line);transform:translateY(-1px)}
+.acts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.act{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px;text-align:left;display:flex;flex-direction:column;gap:9px;transition:.12s;min-height:118px}
+.act:hover{border-color:var(--accent-line);transform:translateY(-1px)}
+.act .ic{width:40px;height:40px;border-radius:11px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.act b{font-size:16px}
+.act span{font-size:12.5px;color:var(--muted)}
+
+.demos{margin-top:16px}
+.demos .t{font-size:12.5px;color:var(--hint);margin-bottom:8px}
+.demos .row{display:flex;flex-wrap:wrap;gap:8px}
+.demo{border:1px solid var(--accent-line);background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:8px 13px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:5px}
+.demo:hover{background:#f8e0cc}
+
+details{margin-top:16px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+details>summary{cursor:pointer;padding:13px 15px;font-size:13.5px;font-weight:600;color:var(--ink);list-style:none;display:flex;align-items:center;gap:7px}
+details>summary::-webkit-details-marker{display:none}
+details>summary .ch{margin-left:auto;color:var(--hint);transition:.15s}
+details[open]>summary .ch{transform:rotate(90deg)}
+details .body{padding:0 15px 14px;font-size:13px;color:var(--muted)}
+.minilinks{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px;font-size:12.5px}
+.minilinks button{background:none;border:none;color:var(--muted);padding:0;display:inline-flex;align-items:center;gap:5px}
+.minilinks button:hover{color:var(--accent)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:4px}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px;text-align:left;display:flex;flex-direction:column;gap:6px}
+.cat:hover{border-color:var(--accent-line)}
 .cat[disabled]{opacity:.5;cursor:default}
-.cat .ic{width:38px;height:38px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
-.cat b{font-size:15px}
-.cat .v{font-size:20px;font-weight:800;color:var(--ink)}
-.cat .v small{font-size:12px;font-weight:400;color:var(--muted);margin-left:3px}
-.cat .d{font-size:12.5px;color:var(--muted)}
-.cat .soon{font-size:11.5px;color:var(--hint)}
+.cat .ci{width:30px;height:30px;border-radius:8px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.cat b{font-size:13.5px}.cat span{font-size:12px;color:var(--muted)}.cat .soon{font-size:11.5px;color:var(--hint)}
 
-.view{display:none;padding-top:20px}
-.view.on{display:block;animation:f .2s}
+.view{display:none;padding-top:18px}
+.view.on{display:block;animation:f .18s}
 @keyframes f{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 .back{background:none;border:none;color:var(--muted);font-size:13.5px;padding:6px 0;display:inline-flex;align-items:center;gap:5px}
 .back:hover{color:var(--accent)}
 .vh{display:flex;align-items:center;gap:10px;margin:4px 0}
 .vh .ic{width:32px;height:32px;border-radius:9px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
 .vh h2{font-size:19px;margin:0}
-.vsub{color:var(--muted);font-size:13.5px;margin:0 0 16px}
+.vsub{color:var(--muted);font-size:13px;margin:0 0 16px}
 
 .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
 .lbl{font-size:13.5px;font-weight:700;margin:0 0 9px;display:block}
 .lbl .q{color:var(--hint);font-weight:500}
-.row{margin-bottom:16px}.row:last-child{margin-bottom:0}
+.rrow{margin-bottom:16px}.rrow:last-child{margin-bottom:0}
 input[type=number],input[type=date],input[type=text],select{width:100%;height:44px;border:1px solid var(--line);border-radius:var(--r);padding:0 13px;font-size:15px;font-family:inherit;background:#fff;color:var(--ink)}
 input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -73,55 +93,38 @@ input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 
 .go{width:100%;height:48px;background:var(--accent);color:#fff;border:none;border-radius:var(--r);font-size:15.5px;font-weight:700;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:7px}
 .go:hover{background:#c9550c}
 
-.rcount{font-size:14.5px;font-weight:700;margin:20px 2px 11px;display:flex;align-items:center;gap:8px}
-.rcount .n{color:var(--accent)}
-.rc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px;margin-bottom:10px}
-.rc h3{margin:0 0 4px;font-size:15px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rc .field{font-size:11.5px;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:999px;font-weight:600}
-.rc .b{font-size:13.5px;margin:6px 0}
-.rc .meta{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:3px;margin-top:9px;border-top:1px dashed var(--line);padding-top:9px}
+.concl{border-radius:12px;padding:15px 16px;margin-bottom:13px;border:1px solid}
+.concl h3{margin:0;font-size:17px;display:flex;align-items:baseline;gap:6px}
+.concl p{margin:5px 0 0;font-size:13px}
+.c-ok{background:var(--ok-soft);border-color:var(--ok-line)}.c-ok h3{color:var(--ok)}
+.c-warn{background:var(--warn-soft);border-color:var(--warn-line)}.c-warn h3{color:var(--warn)}
+.c-bad{background:var(--danger-soft);border-color:var(--danger-line)}.c-bad h3{color:var(--danger)}
+.c-num{font-size:24px;font-weight:800}
+.todo{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 15px;margin-bottom:13px}
+.todo .th{font-size:13px;font-weight:700;padding:9px 0 4px;display:flex;align-items:center;gap:6px}
+.todo .ti{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:13.5px}
+.todo .ti .no{flex:0 0 22px;height:22px;border-radius:6px;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:12px;display:grid;place-items:center}
+.rc{border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin-bottom:10px;background:var(--card)}
+.rc h3{margin:0 0 3px;font-size:14.5px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.rc .field{font-size:11px;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:999px;font-weight:600}
+.rc .b{font-size:13px;margin:4px 0}
+.rc .meta{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:3px;margin-top:7px;border-top:1px dashed var(--line);padding-top:7px}
 .rc .meta b{color:var(--ink);font-weight:600}
 .tag{font-size:11px;color:var(--muted);background:#f1f2f4;border-radius:6px;padding:2px 7px;margin:0 4px 4px 0;display:inline-block}
 .tag.disp{color:var(--accent);background:var(--accent-soft)}
-
-.verdict{border-radius:12px;padding:16px;margin-bottom:14px;border:1px solid}
-.verdict h3{margin:0 0 4px;font-size:17px}.verdict p{margin:0;font-size:13.5px}
-.v-ok{background:var(--ok-soft);border-color:var(--ok-line)}.v-ok h3{color:var(--ok)}
-.v-warn{background:var(--warn-soft);border-color:var(--warn-line)}.v-warn h3{color:var(--warn)}
-.v-bad{background:var(--danger-soft);border-color:var(--danger-line)}.v-bad h3{color:var(--danger)}
-.v-num{font-size:25px;font-weight:800;margin-right:4px}
-
-.step{display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:none}
-.step .no{flex:0 0 24px;height:24px;border-radius:7px;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:12px;display:grid;place-items:center}
-.step .tx b{font-size:13.5px}.step .tx p{margin:2px 0 0;font-size:12.5px;color:var(--muted)}
-.step .tx .dl{font-size:11.5px;color:var(--danger);font-weight:600}.step .tx .src{font-size:11px;color:var(--hint);margin-top:2px}
-
-.tip{background:#fff;border:1px solid var(--accent-line);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:11px 13px;margin:12px 0;font-size:12.5px;color:var(--muted)}
-.tip b{color:var(--accent)}
-.note{font-size:12px;color:var(--hint);background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin-top:12px}
-.checklist{list-style:none;padding:0;margin:8px 0 0}
-.checklist li{font-size:13px;padding:5px 0 5px 24px;position:relative}
-.checklist li::before{content:"☐";position:absolute;left:0;color:var(--accent);font-size:15px}
-.amt{font-weight:800;color:var(--accent)}
+.step{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:none}
+.step .no{flex:0 0 22px;height:22px;border-radius:6px;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:11px;display:grid;place-items:center}
+.step .tx b{font-size:13px}.step .tx p{margin:2px 0 0;font-size:12px;color:var(--muted)}.step .tx .dl{font-size:11px;color:var(--danger);font-weight:600}.step .tx .src{font-size:11px;color:var(--hint);margin-top:2px}
+.law{font-size:11.5px;color:var(--ok);background:var(--ok-soft);border:1px solid var(--ok-line);border-radius:8px;padding:5px 9px;display:inline-flex;align-items:center;gap:5px;margin-top:8px}
 .empty{text-align:center;color:var(--muted);font-size:14px;padding:24px}
-.basis{font-size:11.5px;color:var(--hint);margin-top:4px}
 
-.modal-bg{position:absolute;inset:0;min-height:100vh;background:rgba(20,25,32,.5);display:flex;align-items:center;justify-content:center;padding:18px;z-index:50}
-.modal{background:var(--card);border-radius:16px;max-width:640px;width:100%;padding:24px;max-height:calc(100vh - 36px);overflow:auto}
-.modal .mh{text-align:center;margin-bottom:18px}
-.modal .mh .mk{width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;display:inline-grid;place-items:center;font-size:14px;margin-bottom:10px}
-.modal .mh h2{font-size:19px;margin:0}.modal .mh p{font-size:13px;color:var(--muted);margin:5px 0 0}
-.pick{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.pcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:left}
-.pcard:hover{border-color:var(--accent-line)}
-.pcard.a{border-color:var(--accent-line)}
-.pcard .pi{width:40px;height:40px;border-radius:11px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:11px}
-.pcard b{font-size:16px}.pcard .sub{font-size:11.5px;color:var(--hint);margin-top:2px}
-.pcard .pd{font-size:13px;color:var(--muted);margin-top:7px}
-.disc{font-size:11.5px;color:var(--hint);text-align:center;margin-top:28px;line-height:1.7;border-top:1px solid var(--line);padding-top:18px}
-.disc b{color:var(--muted)}
-.mwarn{background:var(--ok-soft);border:1px solid var(--ok-line);color:#155e38;border-radius:10px;padding:10px 13px;font-size:12.5px;margin:14px 0}
-@media(max-width:560px){.pick{grid-template-columns:1fr}.hero h1{font-size:19px}}
+.obanner{background:var(--official-soft);border:1px solid #bcd4ee;border-radius:12px;padding:12px 14px;font-size:12.5px;color:#1a4d86;margin-bottom:16px}
+.foot{font-size:11.5px;color:var(--hint);text-align:center;margin-top:26px;border-top:1px solid var(--line);padding-top:16px;line-height:1.7}
+.aiflow{font-size:13px;color:var(--muted)}
+.aiflow b{color:var(--ink)}
+.aiflow .s{display:flex;gap:9px;padding:7px 0}
+.aiflow .s .n{flex:0 0 20px;height:20px;border-radius:6px;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:11px;display:grid;place-items:center}
+@media(max-width:560px){.acts{grid-template-columns:1fr}.hero h1{font-size:19px}}
 </style>
 </head>
 <body>
@@ -132,90 +135,76 @@ const D=window.DATA;
 const IC={
  gift:'<path d="M20 12v9H4v-9M2 7h20v5H2zM12 22V7M12 7s-1-4-4-4-3 2-3 3.5S6 7 7 7M12 7s1-4 4-4 3 2 3 3.5S18 7 17 7"/>',
  scale:'<path d="M12 3v18M5 21h14M7 7l-4 7a4 4 0 008 0L7 7zM17 7l-4 7a4 4 0 008 0l-4-7zM5 7l7-2 7 2"/>',
- clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
- stamp:'<path d="M5 21h14M8 17h8v3H8zM9 17v-2a3 3 0 00-1-2 4 4 0 116 0 3 3 0 00-1 2v2"/>',
- school:'<path d="M3 9l9-4 9 4-9 4-9-4zM7 11v5c0 1 2 2 5 2s5-1 5-2v-5M21 9v5"/>',
- home:'<path d="M4 11l8-7 8 7M6 10v10h12V10"/>',
- car:'<path d="M5 16h14M4 16l1-5a2 2 0 012-1.5h10A2 2 0 0119 11l1 5M4 16v3M20 16v3"/>',
- leaf:'<path d="M4 20s0-9 7-12 9-3 9-3 0 9-7 12-9 3-9 3zM9 15s2-4 7-7"/>',
- shield:'<path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/>',
- search:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/>',
- users:'<circle cx="9" cy="8" r="3.5"/><path d="M2 21c0-4 3-5.5 7-5.5s7 1.5 7 5.5M16 5a3.5 3.5 0 010 7M22 21c0-3-1.5-4.5-4-5"/>',
- shieldcheck:'<path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6zM9 12l2 2 4-4"/>',
- arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',clock2:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
- check:'<path d="M5 12l5 5L20 6"/>',swap:'<path d="M7 4L3 8l4 4M3 8h13M17 20l4-4-4-4M21 16H8"/>'
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',stamp:'<path d="M5 21h14M8 17h8v3H8zM9 17v-2a3 3 0 00-1-2 4 4 0 116 0 3 3 0 00-1 2v2"/>',
+ school:'<path d="M3 9l9-4 9 4-9 4-9-4zM7 11v5c0 1 2 2 5 2s5-1 5-2v-5M21 9v5"/>',home:'<path d="M4 11l8-7 8 7M6 10v10h12V10"/>',
+ car:'<path d="M5 16h14M4 16l1-5a2 2 0 012-1.5h10A2 2 0 0119 11l1 5M4 16v3M20 16v3"/>',leaf:'<path d="M4 20s0-9 7-12 9-3 9-3 0 9-7 12-9 3-9 3zM9 15s2-4 7-7"/>',
+ shield:'<path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/>',
+ shieldcheck:'<path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6zM9 12l2 2 4-4"/>',arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+ check:'<path d="M5 12l5 5L20 6"/>',swap:'<path d="M7 4L3 8l4 4M3 8h13M17 20l4-4-4-4M21 16H8"/>',chev:'<path d="M9 6l6 6-6 6"/>',play:'<path d="M7 4v16l13-8z"/>',cpu:'<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>'
 };
 const svg=(n,s=20)=>`<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]||''}</svg>`;
 const won=n=>n.toLocaleString('ko-KR')+'원';
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fdate=s=>s&&s.length>=8?`${s.slice(0,4)}.${s.slice(4,6)}.${s.slice(6,8)}`:'';
+function lawCur(basis){ for(const k in (D.법령현행||{})){ if(basis&&basis.indexOf(k.split(' ')[0].slice(0,4))>=0) return {n:k,...D.법령현행[k]}; } return null; }
 
-let AUD=localStorage.getItem('hg_aud')||'';
+let AUD=localStorage.getItem('hg_aud')||'citizen';
 let view='home';
+const $=s=>document.querySelector(s);
 
 function chrome(){
-  const label=AUD==='official'?'공직자':'시민';
+  const off=AUD==='official';
   return `<header class="top"><div class="wrap">
-    <button class="brand" onclick="home()"><span class="mk">길</span>화성 행정 길잡이 <span class="md">${label}</span></button>
-    <button class="switch" onclick="openPick()" aria-label="이용자 전환">${svg('swap',15)} 전환</button>
-  </div></header>
-  <div class="aibar"><div class="wrap">${svg('shieldcheck',14)} AI 구조화 지식 + 규칙엔진 · 입력정보 외부전송 없음</div></div>`;
+    <button class="brand ${off?'off':''}" onclick="home()"><span class="mk">길</span>화성 행정 길잡이 <span class="modetag ${off?'off':''}">${off?'공직자':'시민'}</span></button>
+    <button class="switch" onclick="toggleAud()">${svg('swap',15)} ${off?'시민용 보기':'공직자용 보기'}</button>
+  </div></header>`;
 }
 function render(){
-  const root=document.getElementById('root');
-  if(!AUD){ root.innerHTML=pickModal(); return; }
-  root.innerHTML=chrome()+'<div class="wrap" id="main"></div>';
-  if(AUD==='official') officialHome();
-  else citizenHome();
+  document.getElementById('root').innerHTML=chrome()+'<div class="wrap" id="main"></div>';
+  if(AUD==='official') officialHome(); else citizenHome();
 }
-function pickModal(){
-  return `<div class="modal-bg"><div class="modal">
-    <div class="mh"><span class="mk">길</span><h2>어떤 도움이 필요하세요?</h2><p>선택은 기억되고, 헤더 ‘전환’으로 언제든 바꿀 수 있어요</p></div>
-    <div class="pick">
-      <button class="pcard a" onclick="setAud('citizen')">
-        <span class="pi">${svg('users',22)}</span><b>시민·민원인</b>
-        <div class="pd">받을 권리·혜택을 찾고, 행정 처리·처분이 정당한지 점검합니다</div>
-      </button>
-      <button class="pcard" onclick="setAud('official')">
-        <span class="pi">${svg('shieldcheck',22)}</span><b>공직자</b><div class="sub">공무원·공공기관·산하기관 임직원</div>
-        <div class="pd">업무에서 같은 지적을 미리 예방하고, 화성 자체감사 사례를 확인합니다</div>
-      </button>
-    </div>
-    <div class="disc" style="border:none;margin-top:14px;padding-top:0">두 모드는 같은 화성 행정·감사 데이터를 공유합니다 · 감사 선례는 공직자 모드에서만 노출</div>
-  </div></div>`;
-}
-function setAud(a){ AUD=a; localStorage.setItem('hg_aud',a); view='home'; render(); window.scrollTo(0,0); }
-function openPick(){ document.getElementById('root').insertAdjacentHTML('beforeend',pickModal()); }
+function toggleAud(){ AUD=AUD==='official'?'citizen':'official'; localStorage.setItem('hg_aud',AUD); view='home'; render(); window.scrollTo(0,0); }
 function home(){ view='home'; if(AUD==='official') officialHome(); else citizenHome(); window.scrollTo({top:0,behavior:'smooth'}); }
 
-/* ---------- 시민 모드 ---------- */
-function catCount(b){
-  if(b.route==='welfare'){ if(b.pre) return D.welfare.filter(p=>p.tags.some(t=>b.pre.includes(t))).length; return D.welfare.length; }
-  if(b.route==='delay') return D.handling.deadlines.length;
-  if(b.route==='fine') return D.fine.examples.length;
-  return 0;
-}
+/* ===== 시민 ===== */
 function citizenHome(){
-  const cards=D.bunya.map(b=>{
+  const moreCats=D.bunya.filter(b=>!['welfare','fine','delay'].includes(b.key)).map(b=>{
     const c=b.on?catCount(b):0;
-    return `<button class="cat" ${b.on?`onclick="routeBunya('${b.key}')"`:'disabled'}>
-      <span class="ic">${svg(b.icon,20)}</span>
-      <b>${b.label}</b>
-      ${b.on?`<div class="v">${c}<small>개 안내</small></div><div class="d">${b.desc}</div>`:`<div class="soon">준비 중</div>`}
-    </button>`;
+    return `<button class="cat" ${b.on?`onclick="routeBunya('${b.key}')"`:'disabled'}><span class="ci">${svg(b.icon,17)}</span><b>${b.label}</b>${b.on?`<span>${b.desc}</span>`:`<span class="soon">준비 중</span>`}</button>`;
   }).join('');
-  document.getElementById('main').innerHTML=`
-   <div class="hero"><h1>화성시 행정, <span class="kk">손해 안 보게</span> 챙겨 드립니다</h1>
-   <p>분야를 고르면 — 받을 혜택은 찾고, 절차는 알고, 부당하면 길을 안내합니다.</p></div>
-   <div class="grid">${cards}</div>
-   <div class="mwarn">이 서비스는 <b>민원 접수·대리·법률자문이 아니라</b>, 공개 기준에 따른 <b>자가점검 안내</b>입니다. 공식 신청·이의제기는 해당 기관의 정식 절차를 이용하세요.</div>
-   ${footer()}`;
+  $('#main').innerHTML=`
+   <div class="hero"><h1>내 상황에 맞는 행정 도움을 <span style="color:var(--accent)">바로</span> 확인하세요</h1>
+   <p>지원금 · 처리기한 · 과태료 대응을 한 번에.</p></div>
+   <div class="acts">
+     <button class="act" onclick="show('welfare')"><span class="ic">${svg('gift',20)}</span><b>받을 권리 찾기</b><span>내 조건에 맞는 지원 확인</span></button>
+     <button class="act" onclick="show('delay')"><span class="ic">${svg('clock',20)}</span><b>처리 점검</b><span>처리기한과 대응 확인</span></button>
+     <button class="act" onclick="show('fine')"><span class="ic">${svg('scale',20)}</span><b>부당함 점검</b><span>과태료 감경·이의 확인</span></button>
+   </div>
+   <div class="demos"><div class="t">예시로 바로 보기</div><div class="row">
+     <button class="demo" onclick="demo(1)">${svg('play',13)} 67세 어르신 지원</button>
+     <button class="demo" onclick="demo(2)">${svg('play',13)} 건축허가 65일 지연</button>
+     <button class="demo" onclick="demo(3)">${svg('play',13)} 주정차 과태료 감경</button>
+   </div></div>
+   <details><summary>더 많은 분야 <span class="ch">${svg('chev',16)}</span></summary><div class="body"><div class="grid">${moreCats}</div></div></details>
+   <details><summary>${svg('cpu',16)} 어떻게 계산하나요? <span class="ch">${svg('chev',16)}</span></summary><div class="body aiflow">
+     <div class="s"><span class="n">1</span><div><b>빌드타임 AI</b> — 공개 법령·제도·감사사례를 시민용 기준표·자격 규칙으로 구조화</div></div>
+     <div class="s"><span class="n">2</span><div><b>감사관 검증</b> — 법령·표현·정확성 확인, 기준일·출처 부착</div></div>
+     <div class="s"><span class="n">3</span><div><b>법제처 OPEN API</b>로 법령 현행성 동기화(${D.법령확인일} 확인)</div></div>
+     <div class="s"><span class="n">4</span><div><b>런타임 규칙엔진</b> — 입력은 규칙·계산·검색으로만 처리(외부 전송·즉흥 생성 없음)</div></div>
+   </div></details>
+   <div class="minilinks">
+     <button onclick="this.closest('#main').querySelectorAll('details')[1].open=true;this.closest('#main').querySelectorAll('details')[1].scrollIntoView({behavior:'smooth'})">${svg('cpu',14)} AI 활용 방식</button>
+     <button onclick="show('official')">${svg('shieldcheck',14)} 공직자용 감사사례 보기</button>
+   </div>
+   ${foot()}`;
 }
+function catCount(b){ if(b.route==='welfare'){ if(b.pre) return D.welfare.filter(p=>p.tags.some(t=>b.pre.includes(t))).length; return D.welfare.length; } if(b.route==='delay') return D.handling.deadlines.length; if(b.route==='fine') return D.fine.examples.length; return 0; }
 const PRE={};
 function routeBunya(k){ const b=D.bunya.find(x=>x.key===k); PRE.tags=b.pre||null; show(b.route); }
 
 function show(v){
-  view=v;
-  const m=document.getElementById('main');
+  view=v; const m=$('#main');
+  if(v==='official'){ AUD='official'; localStorage.setItem('hg_aud','official'); render(); return; }
   if(v==='welfare') m.innerHTML=welfareView();
   else if(v==='delay') m.innerHTML=delayView();
   else if(v==='fine') m.innerHTML=fineView();
@@ -224,149 +213,125 @@ function show(v){
   if(v==='fine'){ fillSel('f-type',D.fine.examples.map((e,i)=>[i,`${e.type} — ${won(e.base)}`])); buildChips('f-chips',D.fchips); }
   if(v==='delay'){ fillSel('d-type',D.handling.deadlines.map((d,i)=>[i,`${d.type} — 법정 ${d.min===d.max?d.min+'영업일':d.min+'~'+d.max+'영업일'}`])); }
 }
-function buildChips(id,arr){ document.getElementById(id).innerHTML=arr.map((c,i)=>`<button class="chip" type="button" aria-pressed="false" data-i="${i}" onclick="tog(this)"><span class="ck">${svg('check',13)}</span>${c.label}</button>`).join(''); }
+function buildChips(id,arr){ $('#'+id).innerHTML=arr.map((c,i)=>`<button class="chip" type="button" aria-pressed="false" data-i="${i}" onclick="tog(this)"><span class="ck">${svg('check',13)}</span>${c.label}</button>`).join(''); }
 function tog(b){ b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true'); }
 function preselect(id,arr,tags){ document.querySelectorAll('#'+id+' .chip').forEach(b=>{ if(arr[+b.dataset.i].tags.some(t=>tags.includes(t))) b.setAttribute('aria-pressed','true'); }); }
-function fillSel(id,pairs){ document.getElementById(id).innerHTML=pairs.map(([v,t])=>`<option value="${v}">${esc(t)}</option>`).join(''); }
+function fillSel(id,pairs){ $('#'+id).innerHTML=pairs.map(([v,t])=>`<option value="${v}">${esc(t)}</option>`).join(''); }
 function pressed(id){ return [...document.querySelectorAll('#'+id+' .chip[aria-pressed=true]')].map(b=>+b.dataset.i); }
+function todo(items){ return `<div class="todo"><div class="th">${svg('check',15)} 오늘 할 일</div>${items.map((t,i)=>`<div class="ti"><span class="no">${i+1}</span><span>${t}</span></div>`).join('')}</div>`; }
+function dt(summary,body){ return `<details><summary>${summary} <span class="ch">${svg('chev',16)}</span></summary><div class="body">${body}</div></details>`; }
 
-function welfareView(){return `<button class="back" onclick="home()">← 분야 선택</button>
+function welfareView(){return `<button class="back" onclick="home()">${svg('chev',14)} 처음으로</button>
  <div class="vh"><span class="ic">${svg('gift',18)}</span><h2>받을 권리 찾기</h2></div>
- <p class="vsub">나이와 상황을 고르면 신청 가능성이 있는 복지·지원금을 자격 규칙으로 찾아 드립니다.</p>
- <div class="panel">
-   <div class="row"><label class="lbl" for="w-age">나이 <span class="q">(만 나이)</span></label><input type="number" id="w-age" min="0" max="120" placeholder="예: 67"></div>
-   <div class="row"><label class="lbl">해당하는 상황 <span class="q">(여러 개)</span></label><div class="chips" id="w-chips"></div></div>
-   <button class="go" onclick="matchWelfare()">${svg('search',18)} 받을 수 있는 혜택 찾기</button>
- </div><div id="w-out" class="result" aria-live="polite"></div>`;}
+ <p class="vsub">나이·상황을 고르면 신청 가능성이 있는 지원을 찾아 드립니다.</p>
+ <div class="panel"><div class="rrow"><label class="lbl" for="w-age">나이 <span class="q">(만)</span></label><input type="number" id="w-age" min="0" max="120" placeholder="예: 67"></div>
+   <div class="rrow"><label class="lbl">해당하는 상황 <span class="q">(여러 개)</span></label><div class="chips" id="w-chips"></div></div>
+   <button class="go" onclick="matchWelfare()">${svg('search',18)} 받을 수 있는 지원 찾기</button></div>
+ <div id="w-out" aria-live="polite"></div>`;}
 function matchWelfare(){
-  const age=parseInt(document.getElementById('w-age').value,10), hasAge=!isNaN(age);
+  const age=parseInt($('#w-age').value,10), hasAge=!isNaN(age);
   const act=new Set(); pressed('w-chips').forEach(i=>D.chips[i].tags.forEach(t=>act.add(t)));
-  const out=D.welfare.map(p=>{
-    if(hasAge){ if(p.age_min!=null&&age<p.age_min)return null; if(p.age_max!=null&&age>p.age_max)return null; }
-    let hit=0; if(act.size){ p.tags.forEach(t=>{if(act.has(t))hit++;}); if(!hit)return null; }
-    return {p,hit};
-  }).filter(Boolean).sort((a,b)=>b.hit-a.hit);
-  let h='';
-  if(!hasAge&&!act.size) h=`<div class="empty">나이 또는 상황을 하나 이상 선택해 주세요.</div>`;
-  else if(!out.length) h=`<div class="empty">선택 조건에 바로 매칭되는 제도가 없습니다.<br>조건을 줄이거나 복지로(129)에서 확인해 보세요.</div>`;
-  else{ h=`<div class="rcount"><span>신청 가능성이 있는 제도</span><span class="n">${out.length}건</span></div>`+
-    out.map(({p})=>`<div class="rc"><h3>${esc(p.name)} <span class="field">${esc(p.field)}</span></h3>
+  const out=D.welfare.map(p=>{ if(hasAge){ if(p.age_min!=null&&age<p.age_min)return null; if(p.age_max!=null&&age>p.age_max)return null; } let h=0; if(act.size){ p.tags.forEach(t=>{if(act.has(t))h++;}); if(!h)return null; } return {p,h}; }).filter(Boolean).sort((a,b)=>b.h-a.h);
+  let html='';
+  if(!hasAge&&!act.size) html=`<div class="empty">나이 또는 상황을 하나 이상 선택해 주세요.</div>`;
+  else if(!out.length) html=`<div class="empty">바로 매칭되는 지원이 없습니다. 조건을 줄이거나 복지로(129)에서 확인해 보세요.</div>`;
+  else{
+    html=`<div class="concl c-ok"><h3><span class="c-num">${out.length}건</span> 신청 가능성이 있어요</h3><p>아래 지원을 놓치지 않게 챙기세요.</p></div>`;
+    html+=todo(['행정복지센터·복지로(129)에서 신청 가능 여부 확인','소득인정액·증빙서류(수급·소득 등) 준비','아래 신청처에서 모집·기한 확인 후 신청']);
+    html+=out.map(({p})=>`<div class="rc"><h3>${esc(p.name)} <span class="field">${esc(p.field)}</span></h3>
       <div class="b">${esc(p.benefit)}</div>
-      <div class="meta"><span><b>대상·소득</b> ${esc(p.income||'')}</span><span><b>신청</b> ${esc(p.apply_at)}</span><span><b>근거</b> ${esc(p.basis)}</span>${p.source?`<span><b>출처</b> <a href="${esc(p.source)}" target="_blank" rel="noopener">공식 안내 보기 ↗</a>${p.base_year?` · ${esc(p.base_year)} 기준`:''}</span>`:''}</div>
-      <div style="margin-top:8px">${p.tags.map(t=>`<span class="tag">#${esc(t)}</span>`).join('')}</div></div>`).join('')+
-    `<div class="note">자격은 소득인정액 등 세부 심사로 최종 결정됩니다. <b>데이터 기준일 ${D.기준일}</b> · ${D.기준설명}.</div>`;
+      ${dt('대상·신청·출처', `<div class="meta"><span><b>대상·소득</b> ${esc(p.income||'')}</span><span><b>신청</b> ${esc(p.apply_at)}</span><span><b>근거</b> ${esc(p.basis)}</span>${p.source?`<span><b>출처</b> <a href="${esc(p.source)}" target="_blank" rel="noopener">공식 안내 ↗</a>${p.base_year?` · ${esc(p.base_year)} 기준`:''}</span>`:''}</div>`)}</div>`).join('');
+    html+=`<p class="vsub" style="margin-top:10px">항목별 기준연도는 ‘대상·신청·출처’에 표시 · 최종 자격·금액은 신청기관 심사로 확정됩니다.</p>`;
   }
-  document.getElementById('w-out').innerHTML=h;
+  $('#w-out').innerHTML=html; $('#w-out').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function delayView(){return `<button class="back" onclick="home()">← 분야 선택</button>
+function delayView(){return `<button class="back" onclick="home()">${svg('chev',14)} 처음으로</button>
  <div class="vh"><span class="ic">${svg('clock',18)}</span><h2>처리 점검</h2></div>
- <p class="vsub">민원·인허가 종류와 신청일을 넣으면 법정 처리기한과 비교해 지연 여부와 구제 경로를 안내합니다.</p>
- <div class="panel">
-   <div class="row"><label class="lbl" for="d-type">민원·인허가 종류</label><select id="d-type"></select></div>
-   <div class="row"><label class="lbl" for="d-date">신청(접수)한 날</label><input type="date" id="d-date"></div>
-   <div class="row"><label class="chip" style="cursor:pointer"><input type="checkbox" id="d-hold" style="width:auto;height:auto;margin-right:7px"> 관계기관 협의·보완요구를 받았어요</label></div>
-   <button class="go" onclick="checkDelay()">${svg('clock',18)} 처리기한 점검하기</button>
- </div><div id="d-out" class="result" aria-live="polite"></div>`;}
+ <p class="vsub">민원·인허가 종류와 신청일로 처리 지연 여부와 다음 행동을 안내합니다.</p>
+ <div class="panel"><div class="rrow"><label class="lbl" for="d-type">민원·인허가 종류</label><select id="d-type"></select></div>
+   <div class="rrow"><label class="lbl" for="d-date">신청(접수)한 날</label><input type="date" id="d-date"></div>
+   <div class="rrow"><label class="chip" style="cursor:pointer"><input type="checkbox" id="d-hold" style="width:auto;height:auto;margin-right:7px"> 관계기관 협의·보완요구를 받았어요</label></div>
+   <button class="go" onclick="checkDelay()">${svg('clock',18)} 처리기한 점검하기</button></div>
+ <div id="d-out" aria-live="polite"></div>`;}
 function bizDays(a,b){let n=0;const d=new Date(a);while(d<b){d.setDate(d.getDate()+1);const w=d.getDay();if(w&&w!==6)n++;}return n;}
 function checkDelay(){
-  const it=D.handling.deadlines[+document.getElementById('d-type').value];
-  const v=document.getElementById('d-date').value, hold=document.getElementById('d-hold').checked;
-  if(!v){ document.getElementById('d-out').innerHTML=`<div class="empty">신청한 날짜를 입력해 주세요.</div>`; return; }
+  const it=D.handling.deadlines[+$('#d-type').value]; const v=$('#d-date').value, hold=$('#d-hold').checked;
+  if(!v){ $('#d-out').innerHTML=`<div class="empty">신청한 날짜를 입력해 주세요.</div>`; return; }
   const from=new Date(v+'T00:00:00'), today=new Date(); today.setHours(0,0,0,0);
-  if(from>today){ document.getElementById('d-out').innerHTML=`<div class="empty">신청일이 미래입니다.</div>`; return; }
-  const el=bizDays(from,today), {min,max}=it;
-  const span=min===max?`${min}영업일`:`${min}~${max}영업일`;
-  let cls,title,msg;
-  if(el<=min){ cls='v-ok'; title='기한 내 가능성'; msg=`법정 처리기한 <b>${span}</b> 중 약 ${el}영업일 경과 — 정상 범위입니다.`; }
-  else if(el<=max){ cls='v-warn'; title='확인 필요'; msg=`약 ${el}영업일 경과. 이 민원은 사안(규모·협의·심의)에 따라 <b>${span}</b>까지 걸릴 수 있어, 단정보다 <b>진행상황 확인</b>을 권합니다.`; }
-  else{ cls='v-bad'; title='지연 의심'; msg=`약 ${el}영업일 경과 — 법정 처리기한(${span}) 범위를 넘었습니다. 행정청은 지연 사유를 통지했어야 합니다.`; }
-  if(hold) msg+=` <b>※ 협의·보완 기간은 처리기간에서 제외</b>될 수 있어, 그만큼은 지연이 아닐 수 있습니다.`;
-  let h=`<div class="verdict ${cls}"><h3><span class="v-num">${el}</span>영업일 · ${title}</h3><p>${msg}</p></div>`;
-  h+=`<div class="rc"><div class="meta"><span><b>대상</b> ${esc(it.type)}</span><span><b>법정 처리기한</b> ${span}</span><span><b>근거</b> ${it.source?`<a href="${esc(it.source)}" target="_blank" rel="noopener">${esc(it.basis)} ↗</a>`:esc(it.basis)}</span><span style="color:var(--hint)">${esc(it.note)}</span></div></div>`;
-  if(el>min){
-    h+=`<div class="rcount">지연 시 시민 구제 경로 <span class="n">${D.handling.remedies.length}단계</span></div><div class="rc">`+
-      D.handling.remedies.map((r,i)=>`<div class="step"><div class="no">${i+1}</div><div class="tx"><b>${esc(r.step)}</b>${r.deadline?` <span class="dl">· ${esc(r.deadline)}</span>`:''}<p>${esc(r.desc)}</p><div class="src">${esc(r.basis)}</div></div></div>`).join('')+`</div>`;
-    h+=`<div class="tip"><b>자주 놓치는 행정 체크포인트</b> · 처리기한이 지나면 행정청은 지연 사유를 <b>문서로 통지</b>해야 합니다. 통지가 없었다면 먼저 <b>진행상황 통지</b>를 요청하세요(접수 30일 경과·요청 시 즉시).</div>`;
-  }
-  h+=`<div class="note">영업일은 주말 제외로 계산했습니다(공휴일 미반영). 기산·연장은 사안에 따라 다를 수 있어 <b>참고용</b>입니다.</div>`;
-  document.getElementById('d-out').innerHTML=h;
+  if(from>today){ $('#d-out').innerHTML=`<div class="empty">신청일이 미래입니다.</div>`; return; }
+  const el=bizDays(from,today), {min,max}=it, span=min===max?`${min}영업일`:`${min}~${max}영업일`;
+  let cls,title,sub;
+  if(el<=min){ cls='c-ok'; title='기한 내 가능성'; sub=`법정 처리기한 ${span} 중 약 ${el}영업일 경과 — 정상 범위입니다.`; }
+  else if(el<=max){ cls='c-warn'; title='확인 필요'; sub=`약 ${el}영업일 경과. 규모·협의·심의에 따라 ${span}까지 걸릴 수 있어 단정은 이릅니다.`; }
+  else{ cls='c-bad'; title='지연 의심 (확정 아님)'; sub=`약 ${el}영업일 경과 — 법정 처리기한(${span})을 넘었을 가능성. 협의·보완·심의 기간은 제외될 수 있습니다.`; }
+  let h=`<div class="concl ${cls}"><h3>${title}</h3><p>${sub}</p></div>`;
+  if(hold) h=h.replace('</p>','<br><b>협의·보완 기간은 처리기간에서 제외</b>될 수 있어, 그만큼은 지연이 아닐 수 있습니다.</p>');
+  h+=todo(['접수일과 보완요구·협의 통보일을 확인하세요','담당부서에 처리진행상황 통지를 요청하세요(접수 30일 경과·요청 시 즉시)','연장통지를 문서로 받았는지 확인하세요']);
+  const lc=lawCur(it.basis);
+  h+=dt('상세 근거·구제 경로', `<div class="rc" style="margin:0 0 10px"><div class="meta"><span><b>대상</b> ${esc(it.type)}</span><span><b>법정 처리기한</b> ${span}</span><span><b>근거</b> ${it.source?`<a href="${esc(it.source)}" target="_blank" rel="noopener">${esc(it.basis)} ↗</a>`:esc(it.basis)}</span><span style="color:var(--hint)">${esc(it.note)}</span></div>${lc?`<span class="law">${svg('shieldcheck',13)} ${esc(lc.n)} 현행 (시행 ${fdate(lc.시행일)} · ${esc(lc.확인일)} 법제처 확인)</span>`:''}</div>
+    <div style="font-size:13px;font-weight:700;margin:4px 0">기한이 지나도 응답이 없을 때 (단계별)</div>`+
+    D.handling.remedies.map((r,i)=>`<div class="step"><div class="no">${i+1}</div><div class="tx"><b>${esc(r.step)}</b>${r.deadline?` <span class="dl">· ${esc(r.deadline)}</span>`:''}<p>${esc(r.desc)}</p><div class="src">${esc(r.basis)}</div></div></div>`).join('')+
+    `<p style="font-size:11.5px;color:var(--hint);margin-top:8px">영업일은 주말 제외 계산(공휴일 미반영) · 참고용이며 확정 판단이 아닙니다.</p>`);
+  $('#d-out').innerHTML=h; $('#d-out').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function fineView(){return `<button class="back" onclick="home()">← 분야 선택</button>
+function fineView(){return `<button class="back" onclick="home()">${svg('chev',14)} 처음으로</button>
  <div class="vh"><span class="ic">${svg('scale',18)}</span><h2>부당함 점검</h2></div>
- <p class="vsub">과태료 종류와 상황을 고르면 감경 사유·이의제기 기한·절차를 정리해 드립니다.</p>
- <div class="panel">
-   <div class="row"><label class="lbl" for="f-type">과태료 종류</label><select id="f-type"></select></div>
-   <div class="row"><label class="lbl">내 상황 <span class="q">(여러 개)</span></label><div class="chips" id="f-chips"></div></div>
-   <button class="go" onclick="checkFine()">${svg('scale',18)} 감경·이의 길 안내받기</button>
- </div><div id="f-out" class="result" aria-live="polite"></div>`;}
+ <p class="vsub">과태료 종류·상황으로 감경 사유·이의제기 길을 안내합니다.</p>
+ <div class="panel"><div class="rrow"><label class="lbl" for="f-type">과태료 종류</label><select id="f-type"></select></div>
+   <div class="rrow"><label class="lbl">내 상황 <span class="q">(여러 개)</span></label><div class="chips" id="f-chips"></div></div>
+   <button class="go" onclick="checkFine()">${svg('scale',18)} 감경·이의 길 안내받기</button></div>
+ <div id="f-out" aria-live="polite"></div>`;}
 function checkFine(){
-  const ex=D.fine.examples[+document.getElementById('f-type').value];
-  const picks=pressed('f-chips').map(i=>D.fchips[i]), pr=D.fine.procedure;
-  const self=picks.some(p=>p.tag==='자진'), dispute=picks.some(p=>p.kind==='dispute');
-  const mt=picks.filter(p=>p.tag&&p.tag!=='자진').map(p=>p.tag);
-  let h=`<div class="verdict v-warn"><h3>이의제기·감경 여지를 확인하세요</h3><p>「질서위반행위규제법」상 <b>이의제기 ${pr.objection_period_days}일</b>·자진납부 <b>${pr.self_pay_discount_pct}% 감경</b> 제도가 있습니다.</p></div>`;
-  if(self){ const dc=Math.round(ex.base*pr.self_pay_discount_pct/100);
-    h+=`<div class="rc"><h3>① 자진납부 감경 <span class="field">법 제18조</span></h3><div class="b">의견제출 기한 내 자진납부 시 <span class="amt">${pr.self_pay_discount_pct}% 감경</span> → ${won(ex.base)}에서 약 <span class="amt">${won(ex.base-dc)}</span> (감경 ${won(dc)}).</div></div>`;}
-  if(mt.length){
-    const labels={수급:'국민기초생활수급자',장애:'장애의 정도가 심한 장애인',한부모:'한부모가족 보호대상자',미성년:'미성년자'};
-    h+=`<div class="rc"><h3>② 사회적 약자 감경 <span class="field">시행령 제2조의2</span></h3>`+
-      mt.map(t=>`<div class="b">• <b>${labels[t]||t}</b> — 100분의 50 범위 감경</div>`).join('')+
-      `<div class="note" style="margin-top:8px">의견제출 시 위 사유와 증빙(수급자 증명·장애인 등록 등)을 제출하세요. 단, 과태료 체납 중이면 이 감경은 제외됩니다.</div></div>`;
-  }
-  if(dispute){
-    h+=`<div class="rc"><h3>③ 부당하다면 — 이의제기로 법원 판단 <span class="field">법 제20조</span></h3><div class="b">긴급·불가피한 사정이나 위반이 아니라는 다툼은 ‘감경 사유’가 아니라 <b>위반 성립 자체의 문제</b>로, ${pr.objection_period_days}일 내 이의제기하면 법원이 비송 과태료 재판에서 고의·과실·정당한 사유를 판단합니다.</div>
-      <ul class="checklist"><li>증빙 준비: 진료·이송 기록, 사진, 블랙박스, 진술서 등</li><li>이의제기서를 부과 행정청에 서면 제출(${pr.objection_period_days}일 이내)</li><li>이의제기하면 부과처분 효력 상실 → 법원 결정으로 진행</li></ul></div>`;
-  }
-  if(!self&&!mt.length&&!dispute) h+=`<div class="note">해당 상황을 선택하면 감경·이의 경로를 더 구체적으로 안내합니다.</div>`;
-  h+=`<div class="rcount">과태료 불복 절차 <span class="n">${D.fine.appeal_steps.length}단계</span></div><div class="rc">`+
-    D.fine.appeal_steps.map((a,i)=>`<div class="step"><div class="no">${i+1}</div><div class="tx"><b>${esc(a.step)}</b> <span class="dl">· ${esc(a.deadline)}</span><p>${esc(a.desc)}</p></div></div>`).join('')+`</div>`;
-  h+=`<div class="tip"><b>자주 놓치는 체크포인트</b> · 의견제출 기한 내 자진납부하면 20% 감경되고, 수급·장애·한부모·미성년은 추가 감경 사유입니다 — 증빙을 미리 챙기세요.</div>`;
-  h+=`<div class="note">근거 법령: <a href="${esc(D.fine.source)}" target="_blank" rel="noopener">질서위반행위규제법 ↗</a> · 금액·감경은 차종·구역·개별법령에 따라 다를 수 있습니다(<b>데이터 기준일 ${D.기준일}</b>). <b>참고용</b>이며 구체 사안은 관할 행정청에 확인하세요.</div>`;
-  document.getElementById('f-out').innerHTML=h;
+  const ex=D.fine.examples[+$('#f-type').value]; const picks=pressed('f-chips').map(i=>D.fchips[i]), pr=D.fine.procedure;
+  const self=picks.some(p=>p.tag==='자진'), dispute=picks.some(p=>p.kind==='dispute'); const mt=picks.filter(p=>p.tag&&p.tag!=='자진').map(p=>p.tag);
+  let h=`<div class="concl c-warn"><h3>감경·이의 여지를 확인하세요</h3><p>자진납부 ${pr.self_pay_discount_pct}% 감경 · 이의제기 ${pr.objection_period_days}일 제도가 있습니다.</p></div>`;
+  h+=todo(['의견제출 기한을 확인하세요(부과 전 사전통지)','감경 증빙(수급자 증명·장애 등록·이송기록 등)을 준비하세요','부당하다고 보면 이의제기 기한(60일)을 확인하세요']);
+  let body='';
+  if(self){ const dc=Math.round(ex.base*pr.self_pay_discount_pct/100); body+=`<div class="rc" style="margin:0 0 10px"><h3>① 자진납부 감경 <span class="field">법 제18조</span></h3><div class="b">의견제출 기한 내 자진납부 시 <b style="color:var(--accent)">${pr.self_pay_discount_pct}% 감경</b> → ${won(ex.base)} → 약 <b style="color:var(--accent)">${won(ex.base-dc)}</b>.</div></div>`; }
+  if(mt.length){ const L={수급:'국민기초생활수급자',장애:'장애의 정도가 심한 장애인',한부모:'한부모가족 보호대상자',미성년:'미성년자'};
+    body+=`<div class="rc" style="margin:0 0 10px"><h3>② 사회적 약자 감경 <span class="field">시행령 제2조의2</span></h3>`+mt.map(t=>`<div class="b">• <b>${L[t]||t}</b> — 100분의 50 범위 감경</div>`).join('')+`<div style="font-size:11.5px;color:var(--hint);margin-top:6px">의견제출 시 사유·증빙 제출. 체납 중이면 제외.</div></div>`; }
+  if(dispute){ body+=`<div class="rc" style="margin:0 0 10px"><h3>③ 부당하면 이의제기 <span class="field">법 제20조</span></h3><div class="b">긴급·불가피 사정이나 위반이 아니라는 다툼은 ‘감경’이 아니라 위반 성립 문제로, ${pr.objection_period_days}일 내 이의제기하면 법원이 비송 재판에서 판단합니다.</div></div>`; }
+  body+=`<div style="font-size:13px;font-weight:700;margin:4px 0">불복 절차 (단계)</div>`+D.fine.appeal_steps.map((a,i)=>`<div class="step"><div class="no">${i+1}</div><div class="tx"><b>${esc(a.step)}</b> <span class="dl">· ${esc(a.deadline)}</span><p>${esc(a.desc)}</p></div></div>`).join('');
+  body+=`<span class="law">${svg('shieldcheck',13)} 질서위반행위규제법 현행 (${D.법령확인일} 법제처 확인)</span> <a href="${esc(D.fine.source)}" target="_blank" rel="noopener" style="font-size:11.5px">법령 보기 ↗</a>
+    <p style="font-size:11.5px;color:var(--hint);margin-top:8px">금액·감경은 차종·구역·개별법령에 따라 다를 수 있습니다 · 참고용.</p>`;
+  h+=dt('감경 계산·불복 절차 상세', body);
+  $('#f-out').innerHTML=h; $('#f-out').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-/* ---------- 공직자 모드 ---------- */
+function demo(n){
+  if(n===1){ show('welfare'); setTimeout(()=>{ $('#w-age').value='67'; const c=document.querySelectorAll('#w-chips .chip'); c[0].setAttribute('aria-pressed','true'); c[7].setAttribute('aria-pressed','true'); matchWelfare(); },60); }
+  if(n===2){ show('delay'); setTimeout(()=>{ const o=[...$('#d-type').options]; const bi=o.findIndex(x=>x.text.indexOf('건축허가')===0); $('#d-type').value=bi>=0?bi:0; const d=new Date(); d.setDate(d.getDate()-65); $('#d-date').value=d.toISOString().slice(0,10); checkDelay(); },60); }
+  if(n===3){ show('fine'); setTimeout(()=>{ $('#f-type').value='0'; const c=document.querySelectorAll('#f-chips .chip'); c[6].setAttribute('aria-pressed','true'); c[2].setAttribute('aria-pressed','true'); checkFine(); },60); }
+}
+
+/* ===== 공직자 ===== */
 function officialHome(){
   const fields=[...new Set(D.audit.map(a=>a.분야))];
-  document.getElementById('main').innerHTML=`
-   <div class="hero"><h1>업무 전, <span class="kk">같은 지적</span>을 미리 점검하세요</h1>
-   <p>화성 자체감사 사례에서 분야·키워드로 착안점·원인·처분을 확인합니다.</p></div>
-   <div class="panel">
-     <div class="row"><label class="lbl" for="o-q">키워드 검색 <span class="q">(제목·요지·착안점)</span></label>
-       <input type="text" id="o-q" placeholder="예: 처리지연, 수의계약, 보조금, 과태료" oninput="searchAudit()"></div>
-     <div class="row"><label class="lbl">분야</label><div class="chips" id="o-fields">
-       <button class="chip" type="button" aria-pressed="true" data-f="" onclick="pickField(this)">전체</button>
-       ${fields.map(f=>`<button class="chip" type="button" aria-pressed="false" data-f="${esc(f)}" onclick="pickField(this)">${esc(f)}</button>`).join('')}</div></div>
-   </div>
+  $('#main').innerHTML=`
+   <div class="obanner">${svg('shieldcheck',14)} <b>공직자 모드</b> — 공개 자체감사 디제스트 기반 <b>예방·학습용</b>입니다. 시민 권리 안내는 ‘시민용 보기’를 이용하세요. (개인식별 정보 비식별 처리)</div>
+   <div class="hero"><h1>업무 전, <span style="color:var(--official)">같은 지적</span>을 미리 점검하세요</h1><p>화성 자체감사 사례에서 착안점·원인·처분을 확인합니다.</p></div>
+   <div class="panel"><div class="rrow"><label class="lbl" for="o-q">키워드 검색</label><input type="text" id="o-q" placeholder="예: 처리지연, 수의계약, 보조금, 과태료" oninput="searchAudit()"></div>
+     <div class="rrow"><label class="lbl">분야</label><div class="chips" id="o-fields"><button class="chip" type="button" aria-pressed="true" data-f="" onclick="pickField(this)">전체</button>${fields.map(f=>`<button class="chip" type="button" aria-pressed="false" data-f="${esc(f)}" onclick="pickField(this)">${esc(f)}</button>`).join('')}</div></div></div>
    <div id="o-out" aria-live="polite"></div>
-   <div class="note">화성시 공개 자체감사 사례 디제스트(샘플 ${D.audit.length}건) · 실명은 ○○○ 마스킹 · 예방·학습용 참고자료입니다.</div>
-   ${footer()}`;
+   <div class="foot">화성시 공개 자체감사 사례 디제스트(샘플 ${D.audit.length}건) · 실명 ○○○ 마스킹·개인식별정보 비식별 · 예방·학습용 참고자료</div>`;
   searchAudit();
 }
 let oField='';
 function pickField(b){ document.querySelectorAll('#o-fields .chip').forEach(x=>x.setAttribute('aria-pressed','false')); b.setAttribute('aria-pressed','true'); oField=b.dataset.f; searchAudit(); }
 function searchAudit(){
-  const q=(document.getElementById('o-q').value||'').trim();
-  const res=D.audit.filter(a=>{
-    if(oField&&a.분야!==oField) return false;
-    if(q){ const t=a.제목+' '+a.요지+' '+(a.착안점||[]).join(' ')+' '+(a.원인||''); if(!t.includes(q)) return false; }
-    return true;
-  });
-  let h=`<div class="rcount"><span>감사 사례</span><span class="n">${res.length}건</span></div>`;
-  h+=res.length?res.map(a=>`<div class="rc"><h3>${esc(a.제목)} <span class="field">${esc(a.분야)}</span></h3>
+  const q=($('#o-q').value||'').trim();
+  const res=D.audit.filter(a=>{ if(oField&&a.분야!==oField)return false; if(q){const t=a.제목+' '+a.요지+' '+(a.착안점||[]).join(' ')+' '+(a.원인||''); if(!t.includes(q))return false;} return true; });
+  let h=`<div class="concl c-ok" style="background:var(--official-soft);border-color:#bcd4ee"><h3 style="color:var(--official)"><span class="c-num">${res.length}건</span> 감사 사례</h3></div>`;
+  h+=res.length?res.map(a=>`<div class="rc"><h3>${esc(a.제목)} <span class="field" style="color:var(--official);background:var(--official-soft)">${esc(a.분야)}</span></h3>
     <div class="b" style="color:var(--muted)">${esc(a.요지)}</div>
-    <div style="margin:6px 0">${(a.처분||[]).map(d=>`<span class="tag disp">${esc(d)}</span>`).join('')}${(a.위반유형||[]).map(d=>`<span class="tag">${esc(d)}</span>`).join('')}</div>
-    ${(a.착안점||[]).length?`<div class="meta"><b>점검 착안점</b>${a.착안점.map(p=>`<span>· ${esc(p)}</span>`).join('')}</div>`:''}
-    ${a.원인?`<div class="basis">원인: ${esc(a.원인)}</div>`:''}</div>`).join(''):`<div class="empty">검색 결과가 없습니다.</div>`;
-  document.getElementById('o-out').innerHTML=h;
+    <div style="margin:5px 0">${(a.처분||[]).map(d=>`<span class="tag disp">${esc(d)}</span>`).join('')}${(a.위반유형||[]).map(d=>`<span class="tag">${esc(d)}</span>`).join('')}</div>
+    ${(a.착안점||[]).length?dt('점검 착안점·원인', `<div class="meta">${a.착안점.map(p=>`<span>· ${esc(p)}</span>`).join('')}${a.원인?`<span style="color:var(--hint);margin-top:4px">원인: ${esc(a.원인)}</span>`:''}</div>`):''}</div>`).join(''):`<div class="empty">검색 결과가 없습니다.</div>`;
+  $('#o-out').innerHTML=h;
 }
 
-function footer(){return `<p class="disc"><b>참고용 안내</b>이며 법률자문이 아닙니다 · 데이터 기준일 ${D.기준일} · ${D.기준설명}<br>
-  출처: 민원 처리에 관한 법률·질서위반행위규제법·복지로·정부24·화성시 공개 감사자료(빌드타임 정리)<br>
-  화성 행정 길잡이 · 2026 시민·공무원 AI 공모전 출품 프로토타입</p>`;}
-
+function foot(){return `<div class="foot">참고용 안내입니다. 최종 자격·기한·금액은 담당기관 기준을 확인하세요. 데이터 정리일 ${D.기준일} · 법령 현행성 ${D.법령확인일} 법제처 확인 · 입력정보 외부전송 없음.</div>`;}
 render();
 </script>
 </body>

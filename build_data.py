@@ -13,6 +13,10 @@ welfare = wf["welfare"]["programs"]
 handling = wf["handling"]
 fine = wf["fine"]
 audit = json.load(open(AUD, encoding="utf-8"))
+try:
+    lawcur = json.load(open(os.path.join(PROJ, "law_current.json"), encoding="utf-8"))
+except Exception:
+    lawcur = {}
 
 
 def parse_won(s):
@@ -124,7 +128,7 @@ DATA = {
  "welfare": welfare, "chips": chips,
  "handling": {"deadlines": deadlines, "remedies": handling["remedies"]},
  "fine": fine, "fchips": fchips,
- "bunya": bunya, "audit": audit,
+ "bunya": bunya, "audit": audit, "법령현행": lawcur, "법령확인일": "2026-06-29",
 }
 out = "window.DATA=" + json.dumps(DATA, ensure_ascii=False) + ";\n"
 open(os.path.join(PROJ, "data.js"), "w", encoding="utf-8").write(out)
