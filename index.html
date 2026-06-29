@@ -283,7 +283,7 @@ function checkDelay(){
   else{ cls='v-bad'; title='지연 의심'; msg=`약 ${el}영업일 경과 — 법정 처리기한(${span}) 범위를 넘었습니다. 행정청은 지연 사유를 통지했어야 합니다.`; }
   if(hold) msg+=` <b>※ 협의·보완 기간은 처리기간에서 제외</b>될 수 있어, 그만큼은 지연이 아닐 수 있습니다.`;
   let h=`<div class="verdict ${cls}"><h3><span class="v-num">${el}</span>영업일 · ${title}</h3><p>${msg}</p></div>`;
-  h+=`<div class="rc"><div class="meta"><span><b>대상</b> ${esc(it.type)}</span><span><b>법정 처리기한</b> ${span}</span><span><b>근거</b> ${esc(it.basis)}</span><span style="color:var(--hint)">${esc(it.note)}</span></div></div>`;
+  h+=`<div class="rc"><div class="meta"><span><b>대상</b> ${esc(it.type)}</span><span><b>법정 처리기한</b> ${span}</span><span><b>근거</b> ${it.source?`<a href="${esc(it.source)}" target="_blank" rel="noopener">${esc(it.basis)} ↗</a>`:esc(it.basis)}</span><span style="color:var(--hint)">${esc(it.note)}</span></div></div>`;
   if(el>min){
     h+=`<div class="rcount">지연 시 시민 구제 경로 <span class="n">${D.handling.remedies.length}단계</span></div><div class="rc">`+
       D.handling.remedies.map((r,i)=>`<div class="step"><div class="no">${i+1}</div><div class="tx"><b>${esc(r.step)}</b>${r.deadline?` <span class="dl">· ${esc(r.deadline)}</span>`:''}<p>${esc(r.desc)}</p><div class="src">${esc(r.basis)}</div></div></div>`).join('')+`</div>`;
@@ -323,7 +323,7 @@ function checkFine(){
   h+=`<div class="rcount">과태료 불복 절차 <span class="n">${D.fine.appeal_steps.length}단계</span></div><div class="rc">`+
     D.fine.appeal_steps.map((a,i)=>`<div class="step"><div class="no">${i+1}</div><div class="tx"><b>${esc(a.step)}</b> <span class="dl">· ${esc(a.deadline)}</span><p>${esc(a.desc)}</p></div></div>`).join('')+`</div>`;
   h+=`<div class="tip"><b>자주 놓치는 체크포인트</b> · 의견제출 기한 내 자진납부하면 20% 감경되고, 수급·장애·한부모·미성년은 추가 감경 사유입니다 — 증빙을 미리 챙기세요.</div>`;
-  h+=`<div class="note">금액·감경은 차종·구역·개별법령에 따라 다를 수 있습니다(<b>데이터 기준일 ${D.기준일}</b>). <b>참고용</b>이며 구체 사안은 관할 행정청에 확인하세요.</div>`;
+  h+=`<div class="note">근거 법령: <a href="${esc(D.fine.source)}" target="_blank" rel="noopener">질서위반행위규제법 ↗</a> · 금액·감경은 차종·구역·개별법령에 따라 다를 수 있습니다(<b>데이터 기준일 ${D.기준일}</b>). <b>참고용</b>이며 구체 사안은 관할 행정청에 확인하세요.</div>`;
   document.getElementById('f-out').innerHTML=h;
 }
 

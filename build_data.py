@@ -60,6 +60,27 @@ for d in handling["deadlines"]:
     deadlines.append({"type": d["type"], "min": d["days"], "max": MAXMAP.get(d["type"], d["days"]),
                       "basis": d["basis"], "note": d["note"]})
 
+# 법령 출처(국가법령정보센터 deep link) — 처리기한·과태료
+LAWURL = {
+ "건축법": "https://www.law.go.kr/법령/건축법",
+ "식품위생법": "https://www.law.go.kr/법령/식품위생법",
+ "국토": "https://www.law.go.kr/법령/국토의계획및이용에관한법률",
+ "정보공개": "https://www.law.go.kr/법령/공공기관의정보공개에관한법률",
+ "옥외광고": "https://www.law.go.kr/법령/옥외광고물등의관리와옥외광고산업진흥에관한법률",
+ "민원": "https://www.law.go.kr/법령/민원처리에관한법률",
+ "주민등록": "https://www.law.go.kr/법령/주민등록법",
+}
+def law_url(basis):
+    for k, u in LAWURL.items():
+        if k in basis:
+            return u
+    return ""
+for d in deadlines:
+    d["source"] = law_url(d["basis"])
+for r in handling["remedies"]:
+    r["source"] = law_url(r.get("basis", ""))
+fine["source"] = "https://www.law.go.kr/법령/질서위반행위규제법"
+
 chips = [
  {"label": "65세 이상 어르신", "tags": ["노인"]},
  {"label": "청년(19~34세)", "tags": ["청년"]},
