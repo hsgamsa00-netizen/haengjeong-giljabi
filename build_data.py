@@ -28,6 +28,29 @@ def parse_won(s):
 for e in fine["examples"]:
     e["base"] = parse_won(e.get("base_amount", ""))
 
+# 복지 16종 최신성 검증(welfare-verify 워크플로·2026) 반영 — 출처·기준연도 부착 + 변경분 보정
+try:
+    ver = json.load(open(os.path.join(PROJ, "_welfare_verify.json"), encoding="utf-8"))
+except Exception:
+    ver = []
+CORR = {
+ "기초연금": {"income": "65세+·단독 소득인정액 월 247만원 이하(2026·소득 하위 약 70%)", "benefit": "월 최대 349,700원(2026·단독), 소득·부부 여부 따라 차등"},
+ "에너지바우처": {"benefit": "세대원수별 냉·난방비 지원(2026: 1인 약 29.5만~4인 70.1만원), 소득산정 미반영"},
+ "한부모가족 아동양육비": {"income": "기준 중위소득 65% 이하(2026 확대)"},
+ "아이돌봄서비스": {"income": "기준 중위소득 250% 이하 4구간 차등(2026 확대)"},
+ "장애인연금": {"income": "단독 소득인정액 월 140만원 이하(2026)", "benefit": "기초급여 월 최대 349,700원 + 부가급여(합산 최대 약 43.97만원·2026)"},
+ "문화누리카드": {"benefit": "1인 연간 15만원(2026) 문화·여행·체육 이용"},
+}
+for p in welfare:
+    for v in ver:
+        if v["name"][:4] and v["name"][:4] in p["name"]:
+            p["source"] = v.get("source", "")
+            p["base_year"] = v.get("base_year", "")
+            break
+    for key, corr in CORR.items():
+        if key in p["name"]:
+            p.update(corr)
+
 # 처리기한: 즉시처리/원칙 항목(days<=0) 제외, 범위(max) 부여 — P0-3 단일판정 방지
 MAXMAP = {"건축허가": 40, "건축신고": 20, "개발행위허가(국토계획법)": 30, "정보공개청구": 20, "옥외광고물 허가": 20}
 deadlines = []
@@ -76,7 +99,7 @@ bunya = [
 
 DATA = {
  "기준일": "2026-06-29",
- "기준설명": "2025년 제도·법령 기준으로 정리 · 최종 자격·금액은 신청기관 심사로 확정",
+ "기준설명": "2026년 기준 검증 반영(일부 제도) · 최종 자격·금액은 신청기관 심사로 확정",
  "welfare": welfare, "chips": chips,
  "handling": {"deadlines": deadlines, "remedies": handling["remedies"]},
  "fine": fine, "fchips": fchips,

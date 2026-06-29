@@ -252,7 +252,7 @@ function matchWelfare(){
   else{ h=`<div class="rcount"><span>신청 가능성이 있는 제도</span><span class="n">${out.length}건</span></div>`+
     out.map(({p})=>`<div class="rc"><h3>${esc(p.name)} <span class="field">${esc(p.field)}</span></h3>
       <div class="b">${esc(p.benefit)}</div>
-      <div class="meta"><span><b>대상·소득</b> ${esc(p.income||'')}</span><span><b>신청</b> ${esc(p.apply_at)}</span><span><b>근거</b> ${esc(p.basis)}</span></div>
+      <div class="meta"><span><b>대상·소득</b> ${esc(p.income||'')}</span><span><b>신청</b> ${esc(p.apply_at)}</span><span><b>근거</b> ${esc(p.basis)}</span>${p.source?`<span><b>출처</b> <a href="${esc(p.source)}" target="_blank" rel="noopener">공식 안내 보기 ↗</a>${p.base_year?` · ${esc(p.base_year)} 기준`:''}</span>`:''}</div>
       <div style="margin-top:8px">${p.tags.map(t=>`<span class="tag">#${esc(t)}</span>`).join('')}</div></div>`).join('')+
     `<div class="note">자격은 소득인정액 등 세부 심사로 최종 결정됩니다. <b>데이터 기준일 ${D.기준일}</b> · ${D.기준설명}.</div>`;
   }
